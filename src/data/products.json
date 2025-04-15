@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Mammoth Coins Pack",
+    "description": "140 Mammoth Coins for all your in-game purchases. Instant delivery to your account.",
+    "category": "mammoth_coins",
+    "price": 1999,
+    "discountedPrice": 1499,
+    "discountPercentage": 25,
+    "imageUrl": "https://i.imgur.com/KO8n1Nz.png",
+    "featured": true,
+    "id": 1
+  },
+  {
+    "name": "Pro Coaching Session",
+    "description": "2-hour coaching session with top 100 ranked player. Learn advanced strategies and combos.",
+    "category": "coaching",
+    "price": 3999,
+    "discountedPrice": 3399,
+    "discountPercentage": 15,
+    "imageUrl": "https://i.imgur.com/Cq9czR8.png",
+    "featured": true,
+    "id": 2
+  },
+  {
+    "name": "Ranked Boosting",
+    "description": "Get boosted to Gold rank by our professional players. Secure and discreet service.",
+    "category": "boosting",
+    "price": 4999,
+    "discountedPrice": 3499,
+    "discountPercentage": 30,
+    "imageUrl": "https://i.imgur.com/7EHMofi.png",
+    "featured": true,
+    "id": 3
+  },
+  {
+    "name": "Montage Editing",
+    "description": "Professional editing of your best Brawlhalla moments into an epic montage video.",
+    "category": "editing",
+    "price": 2999,
+    "discountedPrice": 2399,
+    "discountPercentage": 20,
+    "imageUrl": "https://i.imgur.com/Y8RaVQo.png",
+    "featured": true,
+    "id": 4
+  },
+  {
+    "name": "Elite Coaching Package",
+    "description": "5-session coaching package with personalized improvement plan and follow-ups.",
+    "category": "coaching",
+    "price": 9999,
+    "discountedPrice": 7999,
+    "discountPercentage": 20,
+    "imageUrl": "https://i.imgur.com/aTjKVaO.png",
+    "featured": false,
+    "id": 5
+  },
+  {
+    "name": "Legend Mastery Course",
+    "description": "Master specific Brawlhalla legends with our specialized coaching program.",
+    "category": "coaching",
+    "price": 2499,
+    "discountedPrice": null,
+    "discountPercentage": null,
+    "imageUrl": "https://i.imgur.com/rrr5dtW.png",
+    "featured": false,
+    "id": 6
+  },
+  {
+    "name": "Diamond Rank Boosting",
+    "description": "Guaranteed boosting to Diamond rank by our top players.",
+    "category": "boosting",
+    "price": 9999,
+    "discountedPrice": 8499,
+    "discountPercentage": 15,
+    "imageUrl": "https://i.imgur.com/mP33Eii.png",
+    "featured": false,
+    "id": 7
+  },
+  {
+    "name": "340 Mammoth Coins",
+    "description": "340 Mammoth Coins at the best price. Delivered instantly to your account.",
+    "category": "mammoth_coins",
+    "price": 3499,
+    "discountedPrice": null,
+    "discountPercentage": null,
+    "imageUrl": "https://i.imgur.com/P5ONJwM.png",
+    "featured": false,
+    "id": 8
+  }
+] 

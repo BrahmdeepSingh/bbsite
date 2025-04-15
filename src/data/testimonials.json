@@ -1,0 +1,30 @@
+[
+  {
+    "customerName": "Jake Reynolds",
+    "customerImage": "https://randomuser.me/api/portraits/men/32.jpg",
+    "rating": 5,
+    "comment": "The coaching session was amazing! I learned so many new techniques and my gameplay improved instantly. Would definitely recommend to any serious Brawlhalla player.",
+    "id": 1
+  },
+  {
+    "customerName": "Sarah Mitchell",
+    "customerImage": "https://randomuser.me/api/portraits/women/44.jpg",
+    "rating": 4,
+    "comment": "Super fast delivery of my Mammoth Coins! The process was smooth and I received exactly what I paid for. Will be coming back for future purchases.",
+    "id": 2
+  },
+  {
+    "customerName": "Marcus Wong",
+    "customerImage": "https://randomuser.me/api/portraits/men/67.jpg",
+    "rating": 5,
+    "comment": "The montage edit they created from my clips was absolutely insane! Professional quality that made me look like a pro. Worth every penny!",
+    "id": 3
+  },
+  {
+    "customerName": "Alex Turner",
+    "customerImage": "https://randomuser.me/api/portraits/women/28.jpg",
+    "rating": 4,
+    "comment": "The boosting service helped me get out of silver rank where I was stuck for months. The booster was professional and completed the job faster than expected.",
+    "id": 4
+  }
+] 
