@@ -30,7 +30,7 @@ export default defineConfig({
   },
   root: path.resolve(__dirname, "src"),
   build: {
-    outDir: "dist/public",
+    outDir: "../public",
     emptyOutDir: true,
   },
 });
