@@ -44,11 +44,32 @@ export const getQueryFn: <T>(options: {
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      queryFn: getQueryFn({ on401: "throw" }),
+      queryFn: async ({ queryKey }) => {
+        try {
+          console.log(`Fetching from: ${queryKey[0]}`);
+          const response = await fetch(queryKey[0] as string, {
+            credentials: "include",
+          });
+          
+          if (!response.ok) {
+            console.error(`API request failed with status ${response.status}: ${response.statusText}`);
+            const errorText = await response.text();
+            console.error(`Error response body: ${errorText}`);
+            throw new Error(`${response.status}: ${response.statusText}`);
+          }
+          
+          const data = await response.json();
+          console.log(`Successfully fetched data from ${queryKey[0]}`);
+          return data;
+        } catch (error) {
+          console.error(`Error fetching ${queryKey[0]}:`, error);
+          throw error;
+        }
+      },
       refetchInterval: false,
       refetchOnWindowFocus: false,
       staleTime: Infinity,
-      retry: false,
+      retry: 2, // Retry failed requests up to 2 times
     },
     mutations: {
       retry: false,

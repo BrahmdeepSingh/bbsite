@@ -15,6 +15,26 @@
   ],
   "routes": [
     {
+      "src": "/api/products/featured",
+      "dest": "src/server/index.ts",
+      "methods": ["GET"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
+      }
+    },
+    {
+      "src": "/api/testimonials",
+      "dest": "src/server/index.ts",
+      "methods": ["GET"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type"
+      }
+    },
+    {
       "src": "/api/(.*)",
       "dest": "src/server/index.ts"
     },
