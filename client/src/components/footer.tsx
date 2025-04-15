@@ -1,8 +1,8 @@
 import { Link } from "wouter";
-import { Gamepad } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FaDiscord, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import logoImage from "@assets/cropped-cropped-Untitled-1-1-removebg-preview.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -35,8 +35,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <Link href="/" className="flex items-center space-x-2 mb-6">
-              <Gamepad className="h-8 w-8 text-primary" />
-              <span className="font-bold text-2xl text-white font-['Poppins']">BrawlMarket</span>
+              <img src={logoImage} alt="Logo" className="h-10 w-10" />
+              <span className="font-bold text-2xl text-white font-['Poppins']">Brawlhalla Shop</span>
             </Link>
             <p className="text-gray-400 mb-6">
               Your one-stop shop for all Brawlhalla services, helping you become the champion you were meant to be.
@@ -112,7 +112,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 mb-4 md:mb-0">
-            &copy; {currentYear} BrawlMarket. All rights reserved.
+            &copy; {currentYear} Brawlhalla Shop. All rights reserved.
           </p>
           <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6">
             {policies.map((policy, index) => (
