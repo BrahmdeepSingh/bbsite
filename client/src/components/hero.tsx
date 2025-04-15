@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import brawlBgImage from "@assets/brawl.jpg";
+import brawl2v2Image from "@assets/2v2-1024x582.jpg";
 
 export default function Hero() {
   return (
@@ -46,8 +47,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.img 
-              src="https://i.imgur.com/7wMQ8DW.png" 
-              alt="Brawlhalla Characters" 
+              src={brawl2v2Image} 
+              alt="Brawlhalla 2v2 Match" 
               className="rounded-lg shadow-2xl max-w-full h-auto"
               animate={{ y: [0, -10, 0] }}
               transition={{ 

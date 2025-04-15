@@ -136,16 +136,12 @@ export default function Navigation() {
                     </SheetClose>
                   )
                 ))}
-                <SheetClose asChild>
-                  <Button className="w-full mt-4">Sign In</Button>
-                </SheetClose>
+
               </div>
             </SheetContent>
           </Sheet>
           
-          <Button className="hidden md:block">
-            Sign In
-          </Button>
+
         </div>
       </div>
     </header>
