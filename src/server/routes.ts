@@ -7,8 +7,9 @@ import {
 } from "@shared/schema";
 import { ZodError } from "zod";
 
-export async function registerRoutes(app: Express): Promise<Server> {
-  // API routes
+// Add setupRoutes function that matches what index.ts is expecting
+export function setupRoutes(app: Express): void {
+  // API routes setup
   
   // Get all products
   app.get("/api/products", async (req: Request, res: Response) => {
@@ -96,7 +97,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to submit contact form" });
     }
   });
+}
 
+export async function registerRoutes(app: Express): Promise<Server> {
+  // Setup the same routes
+  setupRoutes(app);
+  
   const httpServer = createServer(app);
   return httpServer;
 }
