@@ -30,18 +30,7 @@ export default function Testimonials() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  useEffect(() => {
-    if (!testimonials || testimonials.length === 0) return;
-    
-    // Auto carousel
-    const interval = setInterval(() => {
-      setCurrentIndex(prev => 
-        prev === testimonials.length - 1 ? 0 : prev + 1
-      );
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, [testimonials]);
+  // Removed auto-carousel functionality
 
   const handlePrev = () => {
     if (!testimonials) return;
@@ -101,35 +90,6 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="py-20 bg-gray-950 relative overflow-hidden">
-      {/* Add vector game elements in the background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Sword element */}
-        <svg className="absolute left-[5%] top-[10%] w-16 h-16 text-primary/30 transform rotate-45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14.5 17.5L3 6V3H6L17.5 14.5M14.5 17.5L16.5 19.5M14.5 17.5L18.5 21.5M19 21L21 19M6.5 12.5L16.5 2.5L21.5 7.5L11.5 17.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        
-        {/* Shield element */}
-        <svg className="absolute right-[8%] top-[20%] w-14 h-14 text-primary/30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        
-        {/* Fire element */}
-        <svg className="absolute left-[15%] bottom-[10%] w-12 h-12 text-orange-500/30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C9 7 4 9 4 14C4 19 8 22 12 22C16 22 20 19 20 14C20 9 15 7 12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M12 16C10.9 16 10 15.1 10 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        
-        {/* Hammer element */}
-        <svg className="absolute right-[12%] bottom-[15%] w-16 h-16 text-primary/30 transform -rotate-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 12L3 12M15 12L10 7M15 12L10 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M19 7V17M15 7H19H21V17H19H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        
-        {/* Star element */}
-        <svg className="absolute left-[45%] top-[10%] w-10 h-10 text-yellow-400/30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
@@ -197,7 +157,7 @@ export default function Testimonials() {
                 variant="ghost"
                 size="icon"
                 onClick={handlePrev}
-                className="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-primary text-white hover:bg-primary/90 rounded-full p-2 hidden md:flex"
+                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-primary text-white hover:bg-primary/90 rounded-full p-2 hidden md:flex"
               >
                 <ChevronLeft />
               </Button>
@@ -206,7 +166,7 @@ export default function Testimonials() {
                 variant="ghost"
                 size="icon"
                 onClick={handleNext}
-                className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-primary text-white hover:bg-primary/90 rounded-full p-2 hidden md:flex"
+                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-primary text-white hover:bg-primary/90 rounded-full p-2 hidden md:flex"
               >
                 <ChevronRight />
               </Button>

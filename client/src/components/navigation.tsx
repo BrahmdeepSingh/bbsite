@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Gamepad, ShoppingCart, Menu, X } from "lucide-react";
+import { Gamepad, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -8,6 +8,12 @@ import {
   SheetTrigger,
   SheetClose
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
 
 export default function Navigation() {
@@ -29,7 +35,18 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { name: "Shop", href: "#products" },
+    { 
+      name: "Shop", 
+      href: "#products",
+      dropdown: true,
+      items: [
+        { name: "Boosting", href: "#" },
+        { name: "Mammoth Coins", href: "#" },
+        { name: "Codes", href: "#" },
+        { name: "Coaching", href: "#" },
+        { name: "Others", href: "#" }
+      ]
+    },
     { name: "Testimonials", href: "#testimonials" },
     { name: "Contact", href: "#contact" }
   ];
@@ -44,13 +61,34 @@ export default function Navigation() {
         
         <nav className="hidden md:flex space-x-8">
           {navItems.map((item) => (
-            <a 
-              key={item.name} 
-              href={item.href}
-              className="text-white hover:text-primary transition-colors font-medium"
-            >
-              {item.name}
-            </a>
+            item.dropdown ? (
+              <DropdownMenu key={item.name}>
+                <DropdownMenuTrigger className="text-white hover:text-primary transition-colors font-medium flex items-center space-x-1 focus:outline-none">
+                  <span>{item.name}</span>
+                  <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-gray-900 border-gray-700 text-white">
+                  {item.items?.map((subItem) => (
+                    <DropdownMenuItem key={subItem.name} className="focus:bg-gray-800 cursor-pointer" asChild>
+                      <a 
+                        href={subItem.href}
+                        className="w-full px-2 py-1.5 text-sm hover:text-primary transition-colors"
+                      >
+                        {subItem.name}
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <a 
+                key={item.name} 
+                href={item.href}
+                className="text-white hover:text-primary transition-colors font-medium"
+              >
+                {item.name}
+              </a>
+            )
           ))}
         </nav>
         
@@ -71,14 +109,32 @@ export default function Navigation() {
             <SheetContent side="right" className="bg-gray-900 border-gray-800">
               <div className="flex flex-col space-y-4 mt-8">
                 {navItems.map((item) => (
-                  <SheetClose asChild key={item.name}>
-                    <a 
-                      href={item.href}
-                      className="text-white hover:text-primary transition-colors py-2 text-lg"
-                    >
-                      {item.name}
-                    </a>
-                  </SheetClose>
+                  item.dropdown ? (
+                    <div key={item.name} className="space-y-2">
+                      <p className="text-white font-semibold py-2 text-lg">{item.name}</p>
+                      <div className="flex flex-col space-y-2 pl-4 border-l border-gray-700">
+                        {item.items?.map((subItem) => (
+                          <SheetClose asChild key={subItem.name}>
+                            <a 
+                              href={subItem.href}
+                              className="text-gray-300 hover:text-primary transition-colors py-1 text-base"
+                            >
+                              {subItem.name}
+                            </a>
+                          </SheetClose>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <SheetClose asChild key={item.name}>
+                      <a 
+                        href={item.href}
+                        className="text-white hover:text-primary transition-colors py-2 text-lg"
+                      >
+                        {item.name}
+                      </a>
+                    </SheetClose>
+                  )
                 ))}
                 <SheetClose asChild>
                   <Button className="w-full mt-4">Sign In</Button>
