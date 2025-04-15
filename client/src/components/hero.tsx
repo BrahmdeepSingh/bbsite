@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import brawlBgImage from "@assets/brawl.jpg";
 
 export default function Hero() {
   return (
@@ -7,12 +8,12 @@ export default function Hero() {
       id="home" 
       className="min-h-screen flex items-center relative bg-cover bg-center" 
       style={{ 
-        backgroundImage: `url('https://i.imgur.com/QzwSHuN.jpg')`,
+        backgroundImage: `url(${brawlBgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-primary/85"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/70 to-gray-900/60"></div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="flex flex-col md:flex-row items-center">
@@ -23,7 +24,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 font-['Poppins']">
-              Level Up Your <span className="text-yellow-400">Brawlhalla</span> Experience
+              Level Up Your <span className="text-primary">Brawlhalla</span> Experience
             </h1>
             <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-lg">
               Professional coaching, boosting services, mammoth coins, and custom video editing from top-tier Brawlhalla players.
@@ -32,7 +33,7 @@ export default function Hero() {
               <Button size="lg" asChild>
                 <a href="#products">Shop Now</a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:text-yellow-400 hover:border-yellow-400" asChild>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary transition-colors" asChild>
                 <a href="#contact">Contact Us</a>
               </Button>
             </div>
