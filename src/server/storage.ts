@@ -38,19 +38,26 @@ export class MemStorage implements IStorage {
   currentContactId: number;
 
   constructor() {
-    this.users = new Map();
-    this.products = new Map();
-    this.testimonials = new Map();
-    this.contactSubmissions = new Map();
-    
-    this.currentUserId = 1;
-    this.currentProductId = 1;
-    this.currentTestimonialId = 1;
-    this.currentContactId = 1;
-    
-    // Initialize with dummy data
-    this.initializeProducts();
-    this.initializeTestimonials();
+    try {
+      console.log("Initializing in-memory storage");
+      this.users = new Map();
+      this.products = new Map();
+      this.testimonials = new Map();
+      this.contactSubmissions = new Map();
+      
+      this.currentUserId = 1;
+      this.currentProductId = 1;
+      this.currentTestimonialId = 1;
+      this.currentContactId = 1;
+      
+      // Initialize with dummy data
+      console.log("Loading dummy data into storage");
+      this.initializeProducts();
+      this.initializeTestimonials();
+      console.log("Storage initialization complete");
+    } catch (error) {
+      console.error("Error initializing storage:", error);
+    }
   }
 
   // User methods
@@ -73,11 +80,27 @@ export class MemStorage implements IStorage {
   
   // Product methods
   async getAllProducts(): Promise<Product[]> {
-    return Array.from(this.products.values());
+    try {
+      console.log("Getting all products from storage");
+      const products = Array.from(this.products.values());
+      console.log(`Returning ${products.length} products`);
+      return products;
+    } catch (error) {
+      console.error("Error in getAllProducts:", error);
+      return [];
+    }
   }
   
   async getFeaturedProducts(): Promise<Product[]> {
-    return Array.from(this.products.values()).filter(product => product.featured);
+    try {
+      console.log("Getting featured products from storage");
+      const featuredProducts = Array.from(this.products.values()).filter(product => product.featured);
+      console.log(`Returning ${featuredProducts.length} featured products`);
+      return featuredProducts;
+    } catch (error) {
+      console.error("Error in getFeaturedProducts:", error);
+      return [];
+    }
   }
   
   async getProductsByCategory(category: string): Promise<Product[]> {
@@ -97,7 +120,15 @@ export class MemStorage implements IStorage {
   
   // Testimonial methods
   async getAllTestimonials(): Promise<Testimonial[]> {
-    return Array.from(this.testimonials.values());
+    try {
+      console.log("Getting all testimonials from storage");
+      const testimonials = Array.from(this.testimonials.values());
+      console.log(`Returning ${testimonials.length} testimonials`);
+      return testimonials;
+    } catch (error) {
+      console.error("Error in getAllTestimonials:", error);
+      return [];
+    }
   }
   
   async createTestimonial(insertTestimonial: InsertTestimonial): Promise<Testimonial> {

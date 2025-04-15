@@ -17,16 +17,23 @@ var MemStorage = class {
   currentTestimonialId;
   currentContactId;
   constructor() {
-    this.users = /* @__PURE__ */ new Map();
-    this.products = /* @__PURE__ */ new Map();
-    this.testimonials = /* @__PURE__ */ new Map();
-    this.contactSubmissions = /* @__PURE__ */ new Map();
-    this.currentUserId = 1;
-    this.currentProductId = 1;
-    this.currentTestimonialId = 1;
-    this.currentContactId = 1;
-    this.initializeProducts();
-    this.initializeTestimonials();
+    try {
+      console.log("Initializing in-memory storage");
+      this.users = /* @__PURE__ */ new Map();
+      this.products = /* @__PURE__ */ new Map();
+      this.testimonials = /* @__PURE__ */ new Map();
+      this.contactSubmissions = /* @__PURE__ */ new Map();
+      this.currentUserId = 1;
+      this.currentProductId = 1;
+      this.currentTestimonialId = 1;
+      this.currentContactId = 1;
+      console.log("Loading dummy data into storage");
+      this.initializeProducts();
+      this.initializeTestimonials();
+      console.log("Storage initialization complete");
+    } catch (error) {
+      console.error("Error initializing storage:", error);
+    }
   }
   // User methods
   async getUser(id) {
@@ -45,10 +52,26 @@ var MemStorage = class {
   }
   // Product methods
   async getAllProducts() {
-    return Array.from(this.products.values());
+    try {
+      console.log("Getting all products from storage");
+      const products2 = Array.from(this.products.values());
+      console.log(`Returning ${products2.length} products`);
+      return products2;
+    } catch (error) {
+      console.error("Error in getAllProducts:", error);
+      return [];
+    }
   }
   async getFeaturedProducts() {
-    return Array.from(this.products.values()).filter((product) => product.featured);
+    try {
+      console.log("Getting featured products from storage");
+      const featuredProducts = Array.from(this.products.values()).filter((product) => product.featured);
+      console.log(`Returning ${featuredProducts.length} featured products`);
+      return featuredProducts;
+    } catch (error) {
+      console.error("Error in getFeaturedProducts:", error);
+      return [];
+    }
   }
   async getProductsByCategory(category) {
     return Array.from(this.products.values()).filter((product) => product.category === category);
@@ -64,7 +87,15 @@ var MemStorage = class {
   }
   // Testimonial methods
   async getAllTestimonials() {
-    return Array.from(this.testimonials.values());
+    try {
+      console.log("Getting all testimonials from storage");
+      const testimonials2 = Array.from(this.testimonials.values());
+      console.log(`Returning ${testimonials2.length} testimonials`);
+      return testimonials2;
+    } catch (error) {
+      console.error("Error in getAllTestimonials:", error);
+      return [];
+    }
   }
   async createTestimonial(insertTestimonial) {
     const id = this.currentTestimonialId++;
@@ -277,9 +308,12 @@ function setupRoutes(app2) {
   });
   app2.get("/api/products/featured", async (req, res) => {
     try {
+      console.log("Fetching featured products");
       const products2 = await storage.getFeaturedProducts();
+      console.log(`Found ${products2.length} featured products`);
       res.json(products2);
     } catch (error) {
+      console.error("Error fetching featured products:", error);
       res.status(500).json({ message: "Failed to fetch featured products" });
     }
   });
@@ -309,9 +343,12 @@ function setupRoutes(app2) {
   });
   app2.get("/api/testimonials", async (req, res) => {
     try {
+      console.log("Fetching testimonials");
       const testimonials2 = await storage.getAllTestimonials();
+      console.log(`Found ${testimonials2.length} testimonials`);
       res.json(testimonials2);
     } catch (error) {
+      console.error("Error fetching testimonials:", error);
       res.status(500).json({ message: "Failed to fetch testimonials" });
     }
   });

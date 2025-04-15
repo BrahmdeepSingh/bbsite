@@ -24,9 +24,12 @@ export function setupRoutes(app: Express): void {
   // Get featured products
   app.get("/api/products/featured", async (req: Request, res: Response) => {
     try {
+      console.log("Fetching featured products");
       const products = await storage.getFeaturedProducts();
+      console.log(`Found ${products.length} featured products`);
       res.json(products);
     } catch (error) {
+      console.error("Error fetching featured products:", error);
       res.status(500).json({ message: "Failed to fetch featured products" });
     }
   });
@@ -64,9 +67,12 @@ export function setupRoutes(app: Express): void {
   // Get all testimonials
   app.get("/api/testimonials", async (req: Request, res: Response) => {
     try {
+      console.log("Fetching testimonials");
       const testimonials = await storage.getAllTestimonials();
+      console.log(`Found ${testimonials.length} testimonials`);
       res.json(testimonials);
     } catch (error) {
+      console.error("Error fetching testimonials:", error);
       res.status(500).json({ message: "Failed to fetch testimonials" });
     }
   });
