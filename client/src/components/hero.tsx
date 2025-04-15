@@ -13,7 +13,7 @@ export default function Hero() {
         backgroundPosition: 'center'
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/70 to-gray-900/60"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/85 to-gray-900/75"></div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="flex flex-col md:flex-row items-center">
@@ -24,7 +24,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6 font-['Poppins']">
-              Level Up Your <span className="text-primary">Brawlhalla</span> Experience
+              Level Up Your <span className="text-primary font-black drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">Brawlhalla</span> Experience
             </h1>
             <p className="text-gray-200 text-lg md:text-xl mb-8 max-w-lg">
               Professional coaching, boosting services, mammoth coins, and custom video editing from top-tier Brawlhalla players.
