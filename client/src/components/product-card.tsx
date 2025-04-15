@@ -40,7 +40,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               -{discountPercentage}%
             </Badge>
           )}
-          <div className="h-48 overflow-hidden">
+          <div className="h-40 sm:h-44 md:h-48 overflow-hidden">
             <img 
               src={imageUrl} 
               alt={name} 
@@ -50,21 +50,21 @@ export default function ProductCard({ product }: ProductCardProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
         
-        <CardContent className="p-6">
-          <h3 className="font-semibold text-xl text-white mb-2 font-['Poppins']">{name}</h3>
-          <p className="text-gray-400 text-sm mb-4">{description}</p>
-          <div className="flex flex-col space-y-4">
+        <CardContent className="p-4 sm:p-6">
+          <h3 className="font-semibold text-lg sm:text-xl text-white mb-1 sm:mb-2 font-['Poppins'] line-clamp-1">{name}</h3>
+          <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2">{description}</p>
+          <div className="flex flex-col space-y-3 sm:space-y-4">
             <div>
               {discountedPrice ? (
                 <>
-                  <span className="text-gray-500 line-through mr-2">{formattedPrice}</span>
-                  <span className="text-white font-bold text-lg">{formattedDiscountedPrice}</span>
+                  <span className="text-gray-500 line-through mr-2 text-sm sm:text-base">{formattedPrice}</span>
+                  <span className="text-white font-bold text-base sm:text-lg">{formattedDiscountedPrice}</span>
                 </>
               ) : (
-                <span className="text-white font-bold text-lg">{formattedPrice}</span>
+                <span className="text-white font-bold text-base sm:text-lg">{formattedPrice}</span>
               )}
             </div>
-            <Button size="sm" className="w-full">Add to Cart</Button>
+            <Button size="sm" className="w-full text-xs sm:text-sm py-1 h-auto sm:h-9">Add to Cart</Button>
           </div>
         </CardContent>
       </Card>

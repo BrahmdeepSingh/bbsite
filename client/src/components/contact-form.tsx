@@ -162,7 +162,7 @@ export default function ContactForm() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="bg-gray-800 rounded-xl p-8 shadow-lg">
+            <div className="bg-gray-800 rounded-xl p-5 sm:p-6 md:p-8 shadow-lg">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField

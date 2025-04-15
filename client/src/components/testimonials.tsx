@@ -125,23 +125,23 @@ export default function Testimonials() {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className="relative"
                       >
-                        <div className="bg-gray-800 rounded-xl p-8 relative h-full border border-gray-700 shadow-lg">
-                          <div className="text-primary text-4xl absolute top-6 left-6 opacity-20">
-                            <QuoteIcon size={40} />
+                        <div className="bg-gray-800 rounded-xl p-5 sm:p-6 md:p-8 relative h-full border border-gray-700 shadow-lg">
+                          <div className="text-primary text-4xl absolute top-4 sm:top-6 left-4 sm:left-6 opacity-20">
+                            <QuoteIcon size={30} className="sm:hidden" />
+                            <QuoteIcon size={40} className="hidden sm:block" />
                           </div>
-                          <div className="flex justify-end mb-6">
+                          <div className="flex justify-end mb-4 sm:mb-6">
                             <div className="flex text-primary">
                               {Array(5).fill(0).map((_, i) => (
                                 <Star 
                                   key={i} 
-                                  size={16} 
-                                  fill={i < testimonial.rating ? "currentColor" : "none"} 
-                                  className={i < testimonial.rating ? "text-primary" : "text-gray-500"}
+                                  size={14} 
+                                  className={`sm:h-4 sm:w-4 h-3 w-3 ${i < testimonial.rating ? "text-primary fill-current" : "text-gray-500"}`}
                                 />
                               ))}
                             </div>
                           </div>
-                          <p className="text-gray-300 relative z-10 text-lg italic">{testimonial.comment}</p>
+                          <p className="text-gray-300 relative z-10 text-sm sm:text-base md:text-lg italic">{testimonial.comment}</p>
                         </div>
                       </motion.div>
                     ))}
