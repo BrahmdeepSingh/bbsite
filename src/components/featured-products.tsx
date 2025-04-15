@@ -5,8 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function FeaturedProducts() {
+  // Use window.location.origin to get the base URL in production
+  const apiUrl = typeof window !== 'undefined' 
+    ? `${window.location.origin}/api/products/featured`
+    : '/api/products/featured';
+    
   const { data: products, isLoading, error } = useQuery<Product[]>({
-    queryKey: ["/api/products/featured"],
+    queryKey: [apiUrl],
   });
 
   // Loading skeletons

@@ -8,8 +8,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { QuoteIcon } from "lucide-react";
 
 export default function Testimonials() {
+  // Use window.location.origin to get the base URL in production
+  const apiUrl = typeof window !== 'undefined' 
+    ? `${window.location.origin}/api/testimonials`
+    : '/api/testimonials';
+    
   const { data: testimonials, isLoading, error } = useQuery<Testimonial[]>({
-    queryKey: ["/api/testimonials"],
+    queryKey: [apiUrl],
   });
 
   const [currentIndex, setCurrentIndex] = useState(0);
