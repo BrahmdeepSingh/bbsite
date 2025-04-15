@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Gamepad, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
+import { ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
+import logoImage from "@assets/cropped-cropped-Untitled-1-1-removebg-preview.png";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,8 +56,8 @@ export default function Navigation() {
     <header className={`fixed w-full z-50 transition-colors duration-300 ${scrolled ? "bg-gray-900/95 shadow-md" : "bg-transparent"}`}>
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <Gamepad className="h-8 w-8 text-primary" />
-          <span className="font-bold text-2xl text-white font-['Poppins']">BrawlMarket</span>
+          <img src={logoImage} alt="Logo" className="h-10 w-10" />
+          <span className="font-bold text-2xl text-white font-['Poppins']">Brawlhalla Shop</span>
         </Link>
         
         <nav className="hidden md:flex space-x-8">
