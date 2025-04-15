@@ -29,7 +29,6 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "/" },
     { name: "Shop", href: "#products" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "Contact", href: "#contact" }

@@ -53,7 +53,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <CardContent className="p-6">
           <h3 className="font-semibold text-xl text-white mb-2 font-['Poppins']">{name}</h3>
           <p className="text-gray-400 text-sm mb-4">{description}</p>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col space-y-4">
             <div>
               {discountedPrice ? (
                 <>
@@ -64,7 +64,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 <span className="text-white font-bold text-lg">{formattedPrice}</span>
               )}
             </div>
-            <Button size="sm">Add to Cart</Button>
+            <Button size="sm" className="w-full">Add to Cart</Button>
           </div>
         </CardContent>
       </Card>

@@ -28,9 +28,10 @@ export default function FeaturedProducts() {
     <section id="products" className="py-20 bg-gradient-to-b from-gray-950 to-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-bold text-3xl md:text-4xl text-white mb-4 font-['Poppins']">
+          <h2 className="font-bold text-3xl md:text-4xl text-white mb-2 font-['Poppins']">
             Current <span className="text-primary">Deals</span>
           </h2>
+          <h3 className="text-xl text-primary font-semibold mb-4">Up to 50% OFF</h3>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Exclusive offers on our most popular Brawlhalla services, perfect for players looking to gain an edge in the arena.
           </p>
